@@ -25,7 +25,7 @@ class NutritioninfoDefaultFormatter extends FormatterBase
     /**
      * {@inheritdoc}
      */
-    public function viewElements(FieldItemListInterface $items)
+    public function viewElements(FieldItemListInterface $items, $langcode)
 
     {
         $rows = array();
@@ -73,7 +73,7 @@ class NutritioninfoDefaultFormatter extends FormatterBase
             '#attributes' => array('id' => 'nutrition-info'),
         );
 
-        return $elements = array('#markup' => drupal_render($table));
+        return $elements = array('#markup' => \Drupal::service('renderer')->render($table));
 
     }
 }
